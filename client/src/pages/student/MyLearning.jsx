@@ -15,7 +15,7 @@ const MyLearning = () => {
                     isLoading ? <MyLearningSkeleton /> : myLearningCourses.length === 0 ? (<p>You are not enrolled in any course.</p>) :
                         <div className='grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                             {
-                                myLearningCourses.map((course, index) => <Course course={course} key={index} />)
+                                myLearningCourses.map((course, index) => <Course course={course} key={course?._id || index} />)
                             }
                         </div>
                 }

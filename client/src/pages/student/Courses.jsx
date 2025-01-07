@@ -18,7 +18,7 @@ const Courses = () => {
                         isLoading ? Array.from({ length: 8 }).map((_, index) => (
                             <CourseSkeleton key={index} />
                         )
-                        ) : data?.courses && data?.courses.map((course, index) => <Course course={course} key={index} />)
+                        ) : data?.courses && data?.courses.map((course, index) => <Course course={course} key={course._id || index} />)
                     }
                 </div>
             </div>

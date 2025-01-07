@@ -52,7 +52,7 @@ export const courseApi = createApi({
         }),
         editCourse: builder.mutation({
             query: ({ formData, courseId }) => ({
-                url: `/ ${courseId}`,
+                url: `/${courseId}`,
                 method: 'PUT',
                 body: formData
             }),
@@ -60,27 +60,27 @@ export const courseApi = createApi({
         }),
         getCourseById: builder.query({
             query: (courseId) => ({
-                url: `/ ${courseId}`,
+                url: `/${courseId}`,
                 method: 'GET'
             })
         }),
         CreateLecture: builder.mutation({
             query: ({ lectureTitle, courseId }) => ({
-                url: `/ ${courseId} / lecture`,
+                url: `/${courseId}/lecture`,
                 method: 'POST',
                 body: { lectureTitle }
             })
         }),
         getCourseLecture: builder.query({
             query: (courseId) => ({
-                url: `/ ${courseId} / lecture`,
+                url: `/${courseId}/lecture`,
                 method: 'GET'
             }),
             providesTags: ['Refetch_Lecture']
         }),
         editLecture: builder.mutation({
             query: ({ lectureTitle, videoInfo, isPreviewFree, courseId, lectureId }) => ({
-                url: `/ ${courseId} / lecture / ${lectureId}`,
+                url: `/${courseId}/lecture/${lectureId}`,
                 method: 'POST',
                 body: {
                     lectureTitle, videoInfo, isPreviewFree
@@ -90,24 +90,24 @@ export const courseApi = createApi({
         }),
         removeLecture: builder.mutation({
             query: (lectureId) => ({
-                url: `/ lecture / ${lectureId}`,
+                url: `/lecture/${lectureId}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['Refetch_Lecture']
         }),
         getLectureById: builder.query({
             query: (lectureId) => ({
-                url: `/ lecture / ${lectureId}`,
+                url: `/lecture/${lectureId}`,
                 method: 'GET'
             }),
             invalidatesTags: ['Refetch_Lecture']
         }),
         publishCourse: builder.mutation({
             query: ({ courseId, query }) => ({
-                url: `/ ${courseId} ? publish = ${query}`,
-                method: 'PATCH'
-            })
-        })
+                url: `/${courseId}?publish=${query}`,
+                method: "PATCH",
+            }),
+        }),
     })
 })
 
