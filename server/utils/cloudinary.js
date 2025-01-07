@@ -16,7 +16,9 @@ export const uploadMedia = async (file) => {
         })
         return uploadResponse
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to upload media'
+        })
     }
 }
 
@@ -24,7 +26,9 @@ export const deleteMediaFromCloudinary = async (publicId) => {
     try {
         await cloudinary.uploader.destroy(publicId)
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to delete media from cloudinary'
+        })
     }
 }
 
@@ -32,6 +36,8 @@ export const deleteVideoFromCloudinary = async (publicId) => {
     try {
         await cloudinary.uploader.destroy(publicId, { resource_type: 'video' })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to delete video from cloudinary.'
+        })
     }
 }

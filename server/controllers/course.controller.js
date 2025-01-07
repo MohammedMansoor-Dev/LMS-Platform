@@ -20,7 +20,6 @@ export const createCourse = async (req, res) => {
             message: 'Course Created.'
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to create course'
         })
@@ -58,7 +57,9 @@ export const searchCourse = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to search the course'
+        })
     }
 }
 
@@ -74,7 +75,6 @@ export const getPublishedCourse = async (req, res) => {
             courses
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to get the published courses'
         })
@@ -96,7 +96,6 @@ export const getCreatorCourses = async (req, res) => {
             courses,
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to create course'
         })
@@ -131,7 +130,6 @@ export const editCourse = async (req, res) => {
             message: 'Course Updated Successfully'
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to Edit Course'
         })
@@ -152,7 +150,6 @@ export const getCourseById = async (req, res) => {
             course
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to get course by id'
         })
@@ -183,7 +180,6 @@ export const createLecture = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to Create Lecture'
         })
@@ -205,7 +201,6 @@ export const getCourseLecture = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to Get Lectures'
         })
@@ -251,7 +246,6 @@ export const editLecture = async (req, res) => {
             message: 'Lecture updated successfully',
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to edit lecture'
         })
@@ -280,7 +274,6 @@ export const removeLecture = async (req, res) => {
             message: 'Lecture removed successfully'
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to remove lecture'
         })
@@ -300,7 +293,6 @@ export const getLectureById = async (req, res) => {
             lecture
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             message: 'Failed to get lecture by Id'
         })
@@ -325,7 +317,6 @@ export const togglePublishCourse = async (req, res) => {
             message: `Course is ${statusMessage}`
         });
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             message: "Failed to update status"
         })

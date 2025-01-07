@@ -32,7 +32,6 @@ export const register = async (req, res) => {
             message: 'Signup Successfull'
         })
     } catch (err) {
-        console.log(err)
         return res.status(500).json({
             success: false,
             message: 'Failed to Register'
@@ -68,7 +67,6 @@ export const login = async (req, res) => {
 
         generateToken(res, user, `Welcome Back ${user.name}`)
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Failed to Login'
@@ -83,7 +81,6 @@ export const logout = async (_, res) => {
             success: true
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Failed to Login'
@@ -106,7 +103,6 @@ export const getUserProfile = async (req, res) => {
             user
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Failed to Login'
@@ -147,7 +143,6 @@ export const updateProfile = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Failed to Update Profile'

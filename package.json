@@ -4,8 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon server/index.js",
+    "stripe": "stripe listen --forward-to localhost:8000/api/purchase/webhook",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
+    "start": "node server/index.js"
   },
   "keywords": [],
   "author": "",

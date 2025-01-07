@@ -8,6 +8,7 @@ import courseRoute from './routes/course.route.js'
 import mediaRoute from './routes/media.route.js'
 import purchaseRoute from './routes/purchaseCourse.route.js'
 import courseProgressRoute from './routes/courseProgress.route.js'
+import path from 'path'
 
 dotenv.config({})
 connectDB()
@@ -15,6 +16,8 @@ connectDB()
 const app = express()
 
 const port = process.env.PORT || 3000;
+
+const DIRNAME = path.resolve()
 
 app.use(express.json())
 app.use(cookieParser())
@@ -28,5 +31,10 @@ app.use('/api/user', userRoute)
 app.use('/api/course', courseRoute)
 app.use('/api/purchase', purchaseRoute)
 app.use('/api/progress', courseProgressRoute)
+
+app.use(express.static(path.join(DIRNAME, '/client/dist')))
+app.use('*', (_, res)=>{
+    res.sendFile(path.resolve(DIRNAME, 'client', 'dist', 'index.html'))
+})
 
 app.listen(port, () => console.log(`http://localhost:${port}`))

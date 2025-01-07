@@ -67,7 +67,9 @@ export const createCheckoutSession = async (req, res) => {
             url: session.url
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to create checkout session.'
+        })
     }
 }
 
@@ -85,7 +87,6 @@ export const stripeWeebhook = async (req, res) => {
 
         event = stripe.webhooks.constructEvent(payloadStripe, header, secret)
     } catch (error) {
-        console.log('webhook error: ', error)
         return res.status(400).send(`Webhook error: ${error.message}`)
     }
 
@@ -129,7 +130,6 @@ export const stripeWeebhook = async (req, res) => {
                 { new: true }
             )
         } catch (error) {
-            console.log('Error handling event: ', error)
             return res.status(500).json({
                 message: 'Internal Server Error'
             })
@@ -157,7 +157,9 @@ export const getCourseDetailWithPurchaseStatus = async (req, res) => {
             purchased: purchased ? true : false //!!purchased
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to get course details with purchase status.'
+        })
     }
 }
 
@@ -174,6 +176,8 @@ export const getAllPurchasedCourse = async (req, res) => {
             purchasedCourse
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to get all purchased course.'
+        })
     }
 }

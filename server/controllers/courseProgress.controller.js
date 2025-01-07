@@ -34,7 +34,9 @@ export const getCourseProgress = async (req, res) => {
             }
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to get course progress'
+        })
     }
 }
 
@@ -85,8 +87,6 @@ export const updateLectureProgress = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
-
         return res.status(500).json({
             message: 'An error occurred while updating the lecture progress',
             error: error.message,
@@ -116,7 +116,9 @@ export const markAsCompleted = async (req, res) => {
             message: 'Course marked as completed.'
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to mark course as completed.'
+        })
     }
 }
 
@@ -141,6 +143,8 @@ export const markAsInCompleted = async (req, res) => {
             message: 'Course marked as inCompleted.'
         })
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({
+            message: 'Failed to mark course as incompleted.'
+        })
     }
 }
