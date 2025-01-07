@@ -126,7 +126,7 @@ const MobileNavbar = () => {
             </SheetTrigger>
             <SheetContent className='flex flex-col'>
                 <SheetHeader className='flex flex-row items-center justify-between mt-2'>
-                    <SheetTitle>E-Learning</SheetTitle>
+                    <SheetTitle><Link to='/'>E-Learning</Link></SheetTitle>
                     <DarkMode />
                 </SheetHeader>
                 <Separator className='mr-2' />
