@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server/index.js",
-    "stripe": "stripe listen --forward-to localhost:8000/api/purchase/webhook",
+    "stripe": "stripe listen --forward-to https://lms-platform-fats.onrender.com/api/purchase/webhook",
     "build": "npm install && npm install --prefix client && npm run build --prefix client",
     "start": "node server/index.js"
   },
