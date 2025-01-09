@@ -12,7 +12,7 @@ import { useEditLectureMutation, useGetLectureByIdQuery, useRemoveLectureMutatio
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
 
-const MEDIA_API = 'http://localhost:8000/api/media'
+const MEDIA_API = 'https://lms-platform-fats.onrender.com/api/media'
 
 const LectureTab = () => {
 
